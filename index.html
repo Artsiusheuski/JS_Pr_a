@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js_p</title>
+    <script async src="./js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="notes" id="app">
+      <div class="notes__sidebar">
+        <button class="notes__add" type="button">Добавить заметку</button>
+        <div class="notes__list">
+          <div class="notes__list__item notes__list-item--selected">
+            <div class="notes__small-title">Конспект лекций</div>
+            <div class="notes__small-body">Сегодня я ничего не узнал</div>
+            <div class="notes__small-updated">Суббота 18-30</div>
+          </div>
+        </div>
+      </div>
+      <div class="notes__prewiew">
+        <input
+          class="notes__title"
+          type="text"
+          placeholder="Введите название..."
+        />
+        <textarea class="notes__body">Поле заметок...</textarea>
+      </div>
+    </div>
+  </body>
+</html>
