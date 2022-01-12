@@ -51,9 +51,7 @@ export default class NotesView {
               <div class="notes__small-title">${title}</div>
               <div class="notes__small-body">
                   ${body.substring(0, max_body_length)}
-                  ${
-                    body.length > max_body_length ? "..." : ""
-                  }// при длине записи болие 35 симв. будет ...
+                  ${body.length > max_body_length ? "..." : ""}
               </div>
               <div class="notes__small-updated">
                   ${updated.toLocaleString(undefined, {
