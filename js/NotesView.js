@@ -1,4 +1,5 @@
 export default class NotesView {
+  //експорт класса по умолч.
   constructor(
     root,
     { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete } = {}
@@ -24,30 +25,35 @@ export default class NotesView {
     const inpBody = this.root.querySelector(".notes__body");
 
     btnAddNote.addEventListener("click", () => {
+      // при клике на добавить заметку вызываем нов.зам.
       this.onNoteAdd();
     });
 
     [inpTitle, inpBody].forEach((inputField) => {
       inputField.addEventListener("blur", () => {
-        const updatedTitle = inpTitle.value.trim();
+        // добавляем события(при потере фокуса) после выхода пользователя из поля ввода
+        const updatedTitle = inpTitle.value.trim(); // обрезаем пробелы
         const updatedBody = inpBody.value.trim();
 
-        this.onNoteEdit(updatedTitle, updatedBody);
+        this.onNoteEdit(updatedTitle, updatedBody); // для возможности переписать уже сущ.заметки
       });
     });
 
     this.updateNotePreviewVisibility(false);
   }
 
-  _createListItemHTML(id, title, body, updated) {
-    const MAX_BODY_LENGTH = 60;
+  createListItemHTML(id, title, body, updated) {
+    // закрытый метод,для созданеия строки sideBara
+    const max_body_length = 35;
 
     return `
           <div class="notes__list-item" data-note-id="${id}">
               <div class="notes__small-title">${title}</div>
               <div class="notes__small-body">
-                  ${body.substring(0, MAX_BODY_LENGTH)}
-                  ${body.length > MAX_BODY_LENGTH ? "..." : ""}
+                  ${body.substring(0, max_body_length)}
+                  ${
+                    body.length > max_body_length ? "..." : ""
+                  }// при длине записи болие 35 симв. будет ...
               </div>
               <div class="notes__small-updated">
                   ${updated.toLocaleString(undefined, {
@@ -66,7 +72,7 @@ export default class NotesView {
     notesListContainer.innerHTML = "";
 
     for (const note of notes) {
-      const html = this._createListItemHTML(
+      const html = this.createListItemHTML(
         note.id,
         note.title,
         note.body,
@@ -81,10 +87,11 @@ export default class NotesView {
       .querySelectorAll(".notes__list-item")
       .forEach((noteListItem) => {
         noteListItem.addEventListener("click", () => {
-          this.onNoteSelect(noteListItem.dataset.noteId);
+          this.onNoteSelect(noteListItem.dataset.noteId); // переходим по клику на нужную заметку
         });
 
         noteListItem.addEventListener("dblclick", () => {
+          // по 2 клику удаляем заметку
           const doDelete = confirm("Удалить запись?");
 
           if (doDelete) {
