@@ -4,37 +4,37 @@ export default class App {
   constructor(root) {
     this.notes = [];
     this.activeNote = null; //будет хранить ссылку на текущие активные заметки
-    this.view = new NotesView(root, this._handlers());
+    this.view = new NotesView(root, this.handlers());
 
-    this._refreshNotes();
+    this.refreshNotes();
   }
 
-  _refreshNotes() {
+  refreshNotes() {
     const notes = NotesAPI.getAllNotes();
 
-    this._setNotes(notes);
+    this.setNotes(notes);
 
     if (notes.length > 0) {
-      this._setActiveNote(notes[0]);
+      this.setActiveNote(notes[0]);
     }
   }
 
-  _setNotes(notes) {
+  setNotes(notes) {
     this.notes = notes;
     this.view.updateNoteList(notes);
     this.view.updateNotePreviewVisibility(notes.length > 0);
   }
 
-  _setActiveNote(note) {
+  setActiveNote(note) {
     this.activeNote = note;
     this.view.updateActiveNote(note);
   }
 
-  _handlers() {
+  handlers() {
     return {
       onNoteSelect: (noteId) => {
         const selectedNote = this.notes.find((note) => note.id == noteId);
-        this._setActiveNote(selectedNote);
+        this.setActiveNote(selectedNote);
       },
       onNoteAdd: () => {
         const newNote = {
@@ -43,7 +43,7 @@ export default class App {
         };
 
         NotesAPI.saveNote(newNote);
-        this._refreshNotes();
+        this.refreshNotes();
       },
       onNoteEdit: (title, body) => {
         NotesAPI.saveNote({
@@ -52,11 +52,11 @@ export default class App {
           body,
         });
 
-        this._refreshNotes();
+        this.refreshNotes();
       },
       onNoteDelete: (noteId) => {
         NotesAPI.deleteNote(noteId);
-        this._refreshNotes();
+        this.refreshNotes();
       },
     };
   }
