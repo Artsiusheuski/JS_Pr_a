@@ -3,7 +3,7 @@ import NotesAPI from "./NotesAPI.js";
 export default class App {
   constructor(root) {
     this.notes = [];
-    this.activeNote = null;
+    this.activeNote = null; //будет хранить ссылку на текущие активные заметки
     this.view = new NotesView(root, this._handlers());
 
     this._refreshNotes();

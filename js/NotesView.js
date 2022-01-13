@@ -39,11 +39,11 @@ export default class NotesView {
       });
     });
 
-    this.updateNotePreviewVisibility(false);
+    // this.updateNotePreviewVisibility(false); //скрытие body если нет акт.заметок
   }
 
   createListItemHTML(id, title, body, updated) {
-    // закрытый метод,для созданеия строки sideBara
+    // метод,для созданеия строки sideBar
     const max_body_length = 35;
 
     return `
@@ -100,19 +100,21 @@ export default class NotesView {
   }
 
   updateActiveNote(note) {
-    this.root.querySelector(".notes__title").value = note.title;
+    this.root.querySelector(".notes__title").value = note.title; //назначаем стили при доб.заметки
     this.root.querySelector(".notes__body").value = note.body;
 
     this.root.querySelectorAll(".notes__list-item").forEach((noteListItem) => {
-      noteListItem.classList.remove("notes__list-item--selected");
+      // перебираем с курсором
+      noteListItem.classList.remove("notes__list-item--selected"); //стилизуем выбранную курсор.запись
     });
 
     this.root
-      .querySelector(`.notes__list-item[data-note-id="${note.id}"]`)
+      .querySelector(`.notes__list-item[data-note-id="${note.id}"]`) //классы к уже сущ.заметкам
       .classList.add("notes__list-item--selected");
   }
 
   updateNotePreviewVisibility(visible) {
+    //скрытие body если нет акт.заметок стр42
     this.root.querySelector(".notes__preview").style.visibility = visible
       ? "visible"
       : "hidden";
