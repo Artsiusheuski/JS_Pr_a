@@ -63,7 +63,7 @@ body {
 }
 
 .notes__small-updated {
-    color: #f55858;
+    color: #3d3838;
     font-style: italic;
     text-align: right;
 }
@@ -79,14 +79,13 @@ body {
     border: none;
     outline: none;
     width: 100%;
-    background-color: #f5e1e1
 }
 
 .notes__body {
     border: none;
     outline: none;
     width: 100%;
-    background-color: #e2c4f073
+
 }
 
 .notes__title {
