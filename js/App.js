@@ -31,6 +31,7 @@ export default class App {
   }
 
   handlers() {
+    //обработчики
     return {
       onNoteSelect: (noteId) => {
         const selectedNote = this.notes.find((note) => note.id == noteId);
@@ -38,8 +39,8 @@ export default class App {
       },
       onNoteAdd: () => {
         const newNote = {
-          title: "Новая запись",
-          body: "Текст...",
+          title: "",
+          body: "",
         };
 
         NotesAPI.saveNote(newNote);

@@ -1,9 +1,6 @@
 export default class NotesView {
   //експорт класса по умолч.
-  constructor(
-    root,
-    { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete } = {}
-  ) {
+  constructor(root, { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete }) {
     this.root = root;
     this.onNoteSelect = onNoteSelect;
     this.onNoteAdd = onNoteAdd;
@@ -16,7 +13,7 @@ export default class NotesView {
           </div>
           <div class="notes__preview">
               <input class="notes__title" type="text" placeholder="Новая заметка...">
-              <textarea class="notes__body">Принять к сведению...</textarea>
+              <textarea class="notes__body" placeholder="черкани че-нибудь"></textarea>
           </div>
       `;
 
