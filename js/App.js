@@ -4,7 +4,7 @@ export default class App {
   constructor(root) {
     this.notes = [];
     this.activeNote = null; //будет хранить ссылку на текущие активные заметки
-    this.view = new NotesView(root, this.handlers());
+    this.view = new NotesView(root, this.handlers()); //новый экзепляр ,проходящий через заметки
 
     this.refreshNotes();
   }
@@ -27,7 +27,7 @@ export default class App {
 
   setActiveNote(note) {
     this.activeNote = note;
-    this.view.updateActiveNote(note);
+    this.view.updateActiveNote(note); //обновление активной видимой заметки
   }
 
   handlers() {

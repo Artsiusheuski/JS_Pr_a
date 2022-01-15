@@ -100,7 +100,7 @@ export default class NotesView {
 
     this.root.querySelectorAll(".notes__list-item").forEach((noteListItem) => {
       // перебираем с курсором
-      noteListItem.classList.remove("notes__list-item--selected"); //стилизуем выбранную курсор.запись
+      noteListItem.classList.remove("notes__list-item--selected");
     });
 
     this.root
@@ -109,7 +109,6 @@ export default class NotesView {
   }
 
   updateNotePreviewVisibility(visible) {
-    //скрытие body если нет акт.заметок стр42
     this.root.querySelector(".notes__preview").style.visibility = visible
       ? "visible"
       : "hidden";

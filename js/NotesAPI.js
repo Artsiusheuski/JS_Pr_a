@@ -20,7 +20,7 @@ export default class NotesAPI {
       existing.updated = new Date().toISOString();
     } else {
       // иначе будет вставка
-      noteToSave.id = Math.floor(Math.random() * 1000000); // инд.обновления времени для заметки.случайный инд.
+      noteToSave.id = Math.floor(Math.random() * 1000000); // рандомный id
       noteToSave.updated = new Date().toISOString(); //обновленная точка времени будет равна текущей точки времени
       notes.push(noteToSave); // пушим заметки в список
     }
