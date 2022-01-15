@@ -35,8 +35,6 @@ export default class NotesView {
         this.onNoteEdit(updatedTitle, updatedBody); // для возможности переписать уже сущ.заметки
       });
     });
-
-    // this.updateNotePreviewVisibility(false); //скрытие body если нет акт.заметок
   }
 
   createListItemHTML(id, title, body, updated) {
