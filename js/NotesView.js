@@ -38,7 +38,7 @@ export default class NotesView {
   }
 
   createListItemHTML(id, title, body, updated) {
-    // метод,для созданеия строки sideBar
+    // метод,для созданеия списка sideBar
     const max_body_length = 35;
 
     return `
@@ -65,6 +65,7 @@ export default class NotesView {
     notesListContainer.innerHTML = "";
 
     for (const note of notes) {
+      //создаст  HTML для каждой заметки
       const html = this.createListItemHTML(
         note.id,
         note.title,
@@ -72,15 +73,15 @@ export default class NotesView {
         new Date(note.updated)
       );
 
-      notesListContainer.insertAdjacentHTML("beforeend", html);
+      notesListContainer.insertAdjacentHTML("beforeend", html); //всавит в конце еонтейнера
     }
 
-    // Добавить события выбора / удаления для каждого элемента списка  Add select/delete events for each list item
+    // Добавить события выбора / удаления для каждого элемента списка
     notesListContainer
       .querySelectorAll(".notes__list-item")
       .forEach((noteListItem) => {
         noteListItem.addEventListener("click", () => {
-          this.onNoteSelect(noteListItem.dataset.noteId); // переходим по клику на нужную заметку
+          this.onNoteSelect(noteListItem.dataset.noteId); // переходим по клику на выбраную заметку
         });
         noteListItem.addEventListener("dblclick", () => {
           // по 2 клику удаляем заметку

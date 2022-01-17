@@ -9,7 +9,7 @@ export default class App {
   }
 
   refreshNotes() {
-    const notes = NotesAPI.getAllNotes();
+    const notes = NotesAPI.getAllNotes(); //получаем заметки из API
 
     this.setNotes(notes);
 
@@ -33,8 +33,8 @@ export default class App {
     //обработчики
     return {
       onNoteSelect: (noteId) => {
-        const selectedNote = this.notes.find((note) => note.id == noteId);
-        this.setActiveNote(selectedNote);
+        const selectedNote = this.notes.find((note) => note.id == noteId); //подсвечивает одинаковые id
+        this.setActiveNote(selectedNote); //при клике выводит в body акт.ноту
       },
       onNoteAdd: () => {
         const newNote = {
@@ -42,7 +42,7 @@ export default class App {
           body: "",
         };
 
-        NotesAPI.saveNote(newNote);
+        NotesAPI.saveNote(newNote); //при клике  обновлякт body
         this.refreshNotes();
       },
       onNoteEdit: (title, body) => {
@@ -52,9 +52,10 @@ export default class App {
           body,
         });
 
-        this.refreshNotes();
+        this.refreshNotes(); //при выходе из редактирования(body) сохр.изменения
       },
       onNoteDelete: (noteId) => {
+        //удалит по 2 клику
         NotesAPI.deleteNote(noteId);
         this.refreshNotes();
       },
