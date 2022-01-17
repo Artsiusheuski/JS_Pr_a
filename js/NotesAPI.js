@@ -18,11 +18,11 @@ export default class NotesAPI {
       // если сущ.заметки с тем же ид равны, то будет обновление или ред.
       existing.title = noteToSave.title;
       existing.body = noteToSave.body;
-      existing.updated = new Date().toISOString();
+      existing.updated = new Date();
     } else {
       // иначе будет вставка
       noteToSave.id = Math.floor(Math.random() * 1000000); // рандомный id
-      noteToSave.updated = new Date().toISOString(); //обновленная точка времени будет равна текущей точки времени
+      noteToSave.updated = new Date(); //обновленная точка времени будет равна текущей точки времени
       notes.push(noteToSave); // пушим заметки в список
     }
 
