@@ -2,8 +2,8 @@ import NotesView from "./NotesView.js";
 import NotesAPI from "./NotesAPI.js";
 export default class App {
   constructor(root) {
-    this.notes = [];
-    this.activeNote = null; //будет хранить ссылку на текущие активные заметки
+    this.notes;
+    this.activeNote; //будет хранить ссылку на текущие активные заметки
     this.view = new NotesView(root, this.handlers()); //новый экзепляр ,проходящий через заметки
     this.refreshNotes();
   }
