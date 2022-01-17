@@ -5,7 +5,6 @@ export default class App {
     this.notes = [];
     this.activeNote = null; //будет хранить ссылку на текущие активные заметки
     this.view = new NotesView(root, this.handlers()); //новый экзепляр ,проходящий через заметки
-
     this.refreshNotes();
   }
 

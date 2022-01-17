@@ -32,7 +32,7 @@ export default class NotesView {
         const updatedTitle = inpTitle.value.trim(); // обрезаем пробелы
         const updatedBody = inpBody.value.trim();
 
-        this.onNoteEdit(updatedTitle, updatedBody); // для возможности переписать уже сущ.заметки
+        this.onNoteEdit(updatedTitle, updatedBody);
       });
     });
   }
@@ -49,7 +49,7 @@ export default class NotesView {
                   ${body.length > max_body_length ? "..." : ""}
               </div>
               <div class="notes__small-updated">
-                  ${updated.toLocaleString(undefined, {
+                  ${updated.toLocaleString({
                     dateStyle: "full",
                     timeStyle: "short",
                   })}
@@ -82,11 +82,9 @@ export default class NotesView {
         noteListItem.addEventListener("click", () => {
           this.onNoteSelect(noteListItem.dataset.noteId); // переходим по клику на нужную заметку
         });
-
         noteListItem.addEventListener("dblclick", () => {
           // по 2 клику удаляем заметку
           const doDelete = confirm("Удалить запись?");
-
           if (doDelete) {
             this.onNoteDelete(noteListItem.dataset.noteId);
           }

@@ -9,7 +9,11 @@ body {
     display: flex;
     height: 100%;
 }
-
+@media(max-width:992px) {
+    .notes {
+    flex-direction: column;
+    }
+}
 .notes * {
     font-family: sans-serif;
 }
@@ -21,7 +25,14 @@ body {
     padding: 1em;
     width: 38%;
 }
-
+@media(max-width:992px) {
+    .notes__sidebar {
+   width: 100%;
+   padding: 0;
+   border-right:none;
+   border-bottom: 2px solid #dddddd;;
+    }
+}
 .notes__add {
     background: #005e95;
     border: none;

@@ -3,6 +3,7 @@ export default class NotesAPI {
     //получает заметки по умолчанию и можем вызвать каждый раз
     const notes = JSON.parse(localStorage.getItem("notesapp-notes") || "[]"); // получаем пустой массив если нет существ.заметок
     return notes.sort((a, b) => {
+      // console.log(notes);
       return new Date(a.updated) > new Date(b.updated) ? -1 : 1; //алгоритм сортировки
     });
   }
