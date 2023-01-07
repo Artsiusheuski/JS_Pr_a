@@ -8,12 +8,12 @@ export default class NotesView {
     this.onNoteDelete = onNoteDelete;
     this.root.innerHTML = `
           <div class="notes__sidebar">
-              <button class="notes__add" type="button">Добавить заметку</button>
+              <button class="notes__add" type="button">Add note</button>
               <div class="notes__list"></div>
           </div>
           <div class="notes__preview">
-              <input class="notes__title" type="text" placeholder="Новая заметка...">
-              <textarea class="notes__body" placeholder="черкани че-нибудь"></textarea>
+              <input class="notes__title" type="text" placeholder="New note...">
+              <textarea class="notes__body" placeholder="place for notes"></textarea>
           </div>
       `;
 
@@ -85,7 +85,7 @@ export default class NotesView {
         });
         noteListItem.addEventListener("dblclick", () => {
           // по 2 клику удаляем заметку
-          const doDelete = confirm("Удалить запись?");
+          const doDelete = confirm("Deleted note?");
           if (doDelete) {
             this.onNoteDelete(noteListItem.dataset.noteId);
           }
@@ -112,4 +112,5 @@ export default class NotesView {
       ? "visible"
       : "hidden";
   }
+
 }
